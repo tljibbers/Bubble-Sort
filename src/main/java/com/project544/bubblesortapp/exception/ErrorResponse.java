@@ -25,4 +25,16 @@ public class ErrorResponse {
     public String getHttpStatus() {
         return httpStatus;
     }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public void setHttpStatus(String httpStatus) {
+        this.httpStatus = httpStatus;
+    }
 }

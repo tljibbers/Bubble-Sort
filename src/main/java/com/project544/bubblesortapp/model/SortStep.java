@@ -3,11 +3,11 @@ package com.project544.bubblesortapp.model;
 import java.util.List;
 
 public class SortStep {
-    private final List<Integer> state;
-    private final Integer index1;
-    private final Integer index2;
-    private final int pass;
-    private final String stepType;
+    private List<Integer> state;
+    private Integer index1;
+    private Integer index2;
+    private int pass;
+    private String stepType;
 
     public SortStep(List<Integer> state, Integer index1, Integer index2, int pass, String stepType) {
         this.state = state;
@@ -35,5 +35,25 @@ public class SortStep {
 
     public String getStepType() {
         return stepType;
+    }
+
+    public void setState(List<Integer> state) {
+        this.state = state;
+    }
+
+    public void setIndex1(Integer index1) {
+        this.index1 = index1;
+    }
+
+    public void setIndex2(Integer index2) {
+        this.index2 = index2;
+    }
+
+    public void setPass(int pass) {
+        this.pass = pass;
+    }
+
+    public void setStepType(String stepType) {
+        this.stepType = stepType;
     }
 }
