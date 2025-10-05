@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    font-family: 'Rubik';
+}
+#header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    font-size: 40px;
+    box-shadow: 5px 5px 5px lightgray;
+    z-index: 999px;
+}
+
+.arrayForm {
+    text-align: center;
+    padding: 20%;
+}
+
+#array {
+    width: 700px;
+    height: 20px;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: thin;
+}
