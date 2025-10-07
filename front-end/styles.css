@@ -12,7 +12,7 @@ body{
     z-index: 999px;
 }
 
-.arrayForm {
+#array-Form {
     text-align: center;
     padding: 20%;
 }
@@ -23,4 +23,13 @@ body{
     border-radius: 5px;
     border-color: grey;
     border-width: thin;
+}
+
+@keyframes arrayDisappear {
+    0% {opacity: 100;
+        transform: translateY(0%);
+        transform: scale(1);}
+    100% {opacity: 0;
+        transform: translateY(-20%);
+        transform: scale(0.5);}
 }
