@@ -4,6 +4,7 @@ const form = document.getElementById('array-Form')
 const bodyContainer = document.querySelector('.submit_array')
 console.log(form)
 
+
 function convertToArray(arrayChar)
 {
     return arrayChar.split(' ')
@@ -44,9 +45,24 @@ form.addEventListener('submit', function(event){
     console.log("test")
     const arrayChar = document.getElementById('array').value
     const arrayConvert = convertToArray(arrayChar)
+    const dataSend = {
+        array: arrayConvert
+    }
     if((checkForChars(arrayConvert) == true) && (checkForLength(arrayConvert) == true))
     {
         bodyContainer.removeChild(form)
+
+        fetch('http://localhost:8080/api/bubblesort/sort', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataSend)
+        })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
+        
         const test = displayArrayOnScreen(arrayConvert)
         setTimeout(applyAnimation(test), 3000)
         
