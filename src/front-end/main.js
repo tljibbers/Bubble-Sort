@@ -42,7 +42,7 @@ function checkForLength(array)
 
 async function backendData() {
     try {
-            const response = await fetch('/api/bubblesort');
+            const response = await fetch('http://localhost:8080/api/bubblesort/sort');
             if(!response.ok) {
                 throw new Error(response.status);
             }
@@ -60,13 +60,13 @@ form.addEventListener('submit', function(event){
     const arrayChar = document.getElementById('array').value
     const arrayConvert = convertToArray(arrayChar)
     const dataSend = {
-        array: arrayConvert
+        'numbers': arrayConvert
     }
     if((checkForChars(arrayConvert) == true) && (checkForLength(arrayConvert) == true))
     {
         bodyContainer.removeChild(form)
 
-        fetch('/api/bubblesort', {
+        fetch('http://localhost:8080/api/bubblesort/sort', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
