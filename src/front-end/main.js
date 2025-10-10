@@ -40,19 +40,6 @@ function checkForLength(array)
 
 }
 
-async function backendData() {
-    try {
-            const response = await fetch('http://localhost:8080/api/bubblesort/sort');
-            if(!response.ok) {
-                throw new Error(response.status);
-            }
-            const data = await response.json()
-
-            console.log(data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-}
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
@@ -77,7 +64,9 @@ form.addEventListener('submit', function(event){
         .then(data => console.log('Success:', data))
         .catch(error => console.error('Error:', error));
 
-        backendData()
+        fetch('http://localhost:8080/api/bubblesort/sort')
+            .then(response => response.json())
+            .then(data => console.log(data));
 
         const test = displayArrayOnScreen(arrayConvert)
         setTimeout(applyAnimation(test), 3000)
