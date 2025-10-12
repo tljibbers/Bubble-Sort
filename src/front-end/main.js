@@ -65,10 +65,6 @@ form.addEventListener('submit', function(event){
         .then(data => console.log('Success:', data))
         .catch(error => console.error('Error:', error));
 
-        fetch('http://localhost:8080/api/bubblesort/sort')
-            .then(response => response.json())
-            .then(data => console.log(data));
-
         const test = displayArrayOnScreen(arrayConvert)
         setTimeout(applyAnimation(test), 3000)
         
