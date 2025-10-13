@@ -1,4 +1,4 @@
-import { displayArrayOnScreen, applyAnimation } from "./arrayAnimations.js"
+import {getNums} from "./arrayAnimations.js"
 
 const form = document.getElementById('array-Form')
 const bodyContainer = document.querySelector('.submit_array')
@@ -41,6 +41,8 @@ function checkForLength(array)
 }
 
 
+
+
 form.addEventListener('submit', function(event){
     event.preventDefault();
     console.log("test")
@@ -48,7 +50,7 @@ form.addEventListener('submit', function(event){
     const arrayConvert = convertToArray(arrayChar)
     const dataSend = {
         'numbers': arrayConvert
-    }
+    };
     if((checkForChars(arrayConvert) == true) && (checkForLength(arrayConvert) == true))
     {
         bodyContainer.removeChild(form)
@@ -62,11 +64,16 @@ form.addEventListener('submit', function(event){
             body: JSON.stringify(dataSend)
         })
         .then(response => response.json())
-        .then(data => console.log('Success:', data))
+        .then(data => {
+            console.log('Success:', data)
+            console.log('test', data)
+            for(let i = 1; i < data.steps.length; i++)
+            {
+                getNums(data, i)
+            }
+        })
         .catch(error => console.error('Error:', error));
 
-        const test = displayArrayOnScreen(arrayConvert)
-        setTimeout(applyAnimation(test), 3000)
         
     }
     else
