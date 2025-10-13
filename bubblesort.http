@@ -1,0 +1,7 @@
+### request
+POST http://localhost:8080/api/bubblesort/sort
+Content-Type: application/json
+
+{
+  "numbers" : [9,8,3,7]
+}
